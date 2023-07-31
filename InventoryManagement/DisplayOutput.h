@@ -25,10 +25,10 @@ namespace DisplayOutput
 
     std::map<std::string, DisplayOutput> const toEnumMapping =
     {
-        {"DISPLAY PORT", DisplayOutput::DP},
-        {"DIGITAL VISUAL INTERFACE", DisplayOutput::DVI},
-        {"HIGH-DEFINITION MULITMEDIA", DisplayOutput::HDMI},
-        {"VIDEO-IN VIDEO-OUT", DisplayOutput::VIVO},
-        {"VIDEO GRAPHICS ARRAY", DisplayOutput::VGA}
+        {"Display Port", DisplayOutput::DP},
+        {"Digital Visual Interface", DisplayOutput::DVI},
+        {"High-Definition Multimedia", DisplayOutput::HDMI},
+        {"Video-In Video-Out", DisplayOutput::VIVO},
+        {"Video Graphics Array", DisplayOutput::VGA}
     };
 }

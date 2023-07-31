@@ -19,7 +19,7 @@ namespace ScreenType
 
     std::map<std::string, ScreenType> const toEnumMapping =
     {
-        {"FLAT", ScreenType::Flat},
-        {"CURVED", ScreenType::Curved}
+        {"Flat", ScreenType::Flat},
+        {"Curved", ScreenType::Curved}
     };
 }

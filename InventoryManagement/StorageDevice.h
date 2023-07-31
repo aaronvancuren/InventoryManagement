@@ -19,7 +19,7 @@ namespace StorageDevice
 
     std::map<std::string, StorageDevice> const toEnumMapping =
     {
-        {"SOLID STATE DRIVE", StorageDevice::SSD},
-        {"HARD DISK DRIVE", StorageDevice::HDD}
+        {"Solid State Drive", StorageDevice::SSD},
+        {"Hard Disk Drive", StorageDevice::HDD}
     };
 }

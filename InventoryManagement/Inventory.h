@@ -27,19 +27,18 @@ private:
         std::vector<std::string> productProperties;
         do
         {
-            int startIndex = 0;
             int endIndex = 0;
-            if (productText[startIndex] == '[')
+            if (productText[0] == '[')
             {
                 endIndex = productText.find(']');
-                std::string productProperty = productText.substr(startIndex + 1, endIndex - 1);
+                std::string productProperty = productText.substr(1, endIndex - 1);
                 productProperties.push_back(productProperty);
                 productText = productText.substr(endIndex + 1, productText.size());
             }
-            else if (productText[startIndex] == '{')
+            else if (productText[0] == '{')
             {
                 endIndex = productText.find('}');
-                std::string productListProperty = productText.substr(startIndex + 1, endIndex - 1);
+                std::string productListProperty = productText.substr(1, endIndex - 1);
                 std::vector<std::string> nestedProperties = ParseInventoryFile(productListProperty);
                 productText = productText.substr(endIndex + 1, productText.size());
 
@@ -65,11 +64,20 @@ private:
         std::vector<std::string> properties;
         do
         {
-            int startIndex = 0;
             int endIndex = 0;
             endIndex = propertyList.find(',');
-            properties.push_back(propertyList.substr(startIndex, endIndex - 1));
-            propertyList = propertyList.substr(endIndex + 1, propertyList.size());
+            if (endIndex == -1)
+            {
+                endIndex = propertyList.size();
+                properties.push_back(propertyList.substr(0, endIndex));
+                propertyList = propertyList.substr(endIndex, propertyList.size());
+            }
+            else
+            {
+                properties.push_back(propertyList.substr(0, endIndex));
+                propertyList = propertyList.substr(endIndex + 1, propertyList.size());
+            }
+
         } while (!propertyList.empty());
 
         return properties;

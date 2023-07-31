@@ -25,10 +25,10 @@ namespace PowerSupplyCertification
 
     std::map<std::string, PowerSupplyCertification> const toEnumMapping =
     {
-        {"BRONZE", PowerSupplyCertification::Bronze},
-        {"SILVER", PowerSupplyCertification::Silver},
-        {"GOLD", PowerSupplyCertification::Gold},
-        {"PLATINUM", PowerSupplyCertification::Platinum},
-        {"TITANIUM", PowerSupplyCertification::Titanium}
+        {"Bronze", PowerSupplyCertification::Bronze},
+        {"Silver", PowerSupplyCertification::Silver},
+        {"Gold", PowerSupplyCertification::Gold},
+        {"Platinum", PowerSupplyCertification::Platinum},
+        {"Titanium", PowerSupplyCertification::Titanium}
     };
 }
