@@ -7,6 +7,7 @@ namespace StorageDevice
 {
     enum class StorageDevice
     {
+        NOSTORAGEDEVICE,
         SSD,
         HDD
     };

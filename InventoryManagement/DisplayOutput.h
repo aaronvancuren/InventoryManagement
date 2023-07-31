@@ -7,6 +7,7 @@ namespace DisplayOutput
 {
     enum class DisplayOutput
     {
+        NOTFOUND,
         DP,
         DVI,
         HDMI,

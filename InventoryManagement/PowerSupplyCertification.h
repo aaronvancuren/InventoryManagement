@@ -7,6 +7,7 @@ namespace PowerSupplyCertification
 {
     enum class PowerSupplyCertification
     {
+        NOCERTIFICATION,
         Bronze,
         Silver,
         Gold,

@@ -30,6 +30,13 @@ const fs::path inventoryPath = fs::current_path().parent_path()/"Inventories";
 // Method Declarations
 fs::path getSelectedInventoryFilePath();
 void ShowProducts(Inventory selectedInventory);
+Product& PurchaseCPU();
+//Product& PurchaseGPU();
+//Product& PurchaseMonitor();
+Product& PurchaseMotherboard();
+Product& PurchasePowerSupply();
+Product& PurchaseRAM();
+Product& PurchaseStorage();
 
 int main()
 {
@@ -71,18 +78,25 @@ int main()
                 case 1:
                     continue;
                 case 2:
+                    selectedInventory.addProduct(PurchaseCPU());
                     break;
                 case 3:
+                    //selectedInventory.addProduct(PurchaseGPU());
                     break;
                 case 4:
+                    //selectedInventory.addProduct(PurchaseMonitor());
                     break;
                 case 5:
+                    selectedInventory.addProduct(PurchaseMotherboard());
                     break;
                 case 6:
+                    selectedInventory.addProduct(PurchasePowerSupply());
                     break;
                 case 7:
+                    selectedInventory.addProduct(PurchaseRAM());
                     break;
                 case 8:
+                    selectedInventory.addProduct(PurchaseStorage());
                     break;
                 default:
                     std::cout << "Invalid selection, returning to main menu." << std::endl;
@@ -170,4 +184,562 @@ void ShowProducts(Inventory selectedInventory)
     {
         std::cout << product->toString() << std::endl << std::endl;
     }
+}
+
+Product& PurchaseCPU()
+{
+    std::string name;
+    std::cout << "Enter the CPU name" << std::endl;
+    std::getline(std::cin, name);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string description;
+    std::cout << "Enter the CPU description" << std::endl;
+    std::getline(std::cin, description);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string brand;
+    std::cout << "Enter the CPU brand" << std::endl;
+    std::getline(std::cin, brand);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string model;
+    std::cout << "Enter the CPU model" << std::endl;
+    std::getline(std::cin, model);
+
+    float price;
+    std::cout << "Enter the CPU price" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> price;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid price. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    float numberOfCores;
+    std::cout << "Enter the number of cores the CPU has" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> numberOfCores;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid number. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    float numberOfThreads;
+    std::cout << "Enter the number of threads the CPU has" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> numberOfThreads;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid number. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    float frequency;
+    std::cout << "Enter the CPU frequency (speed) in GHz" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> frequency;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid frequency. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    return *(new CPU(name, description, brand, model, price, numberOfCores, numberOfThreads, frequency));
+}
+
+//Product& PurchaseGPU()
+//{
+//    std::string name;
+//    std::cout << "Enter a product name" << std::endl;
+//    std::getline(std::cin, name);
+//    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//
+//    std::string description;
+//    std::cout << "Enter a product description" << std::endl;
+//    std::getline(std::cin, description);
+//    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//
+//    std::string brand;
+//    std::cout << "Enter a product brand" << std::endl;
+//    std::getline(std::cin, brand);
+//    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//
+//    std::string model;
+//    std::cout << "Enter a product model" << std::endl;
+//    std::getline(std::cin, model);
+//
+//    float price;
+//    std::cout << "Enter a product price" << std::endl;
+//    do
+//    {
+//        try
+//        {
+//            std::cin >> price;
+//        }
+//        catch (const std::exception& e)
+//        {
+//            std::cout << "Invalid price. Error: " << e.what() << std::endl;
+//        }
+//    } while (std::cin.fail());
+//}
+
+//Product& PurchaseMonitor()
+//{
+//    std::string name;
+//    std::cout << "Enter a product name" << std::endl;
+//    std::getline(std::cin, name);
+//    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//
+//    std::string description;
+//    std::cout << "Enter a product description" << std::endl;
+//    std::getline(std::cin, description);
+//    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//
+//    std::string brand;
+//    std::cout << "Enter a product brand" << std::endl;
+//    std::getline(std::cin, brand);
+//    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//
+//    std::string model;
+//    std::cout << "Enter a product model" << std::endl;
+//    std::getline(std::cin, model);
+//
+//    float price;
+//    std::cout << "Enter a product price" << std::endl;
+//    do
+//    {
+//        try
+//        {
+//            std::cin >> price;
+//        }
+//        catch (const std::exception& e)
+//        {
+//            std::cout << "Invalid price. Error: " << e.what() << std::endl;
+//        }
+//    } while (std::cin.fail());
+//}
+
+Product& PurchaseMotherboard()
+{
+    std::string name;
+    std::cout << "Enter the motherboard name" << std::endl;
+    std::getline(std::cin, name);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string description;
+    std::cout << "Enter the motherboard description" << std::endl;
+    std::getline(std::cin, description);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string brand;
+    std::cout << "Enter the motherboard brand" << std::endl;
+    std::getline(std::cin, brand);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string model;
+    std::cout << "Enter the motherboard model" << std::endl;
+    std::getline(std::cin, model);
+
+    float price;
+    std::cout << "Enter the motherboard price" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> price;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid price. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    float speed;
+    std::cout << "Enter the motherboard speed" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> speed;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid speed. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    DoubleDataRate::DoubleDataRate doubleDataRate = DoubleDataRate::DoubleDataRate::INVALID;
+    std::cout << "What kind of DDR would you like?" << std::endl;
+    do
+    {
+        for (int i = 1; ; i++)
+        {
+            try
+            {
+                std::string enumValue = getEnumType(DoubleDataRate::toStringMapping, DoubleDataRate::DoubleDataRate(i));
+                std::cout << i << ". " << enumValue << std::endl;
+            }
+            catch (...)
+            {
+                // Reached the end of the enum class and will break out of the for loop.
+                break;
+            }
+        }
+
+        try
+        {
+            int userSelection;
+            std::cin >> userSelection;
+            doubleDataRate = DoubleDataRate::DoubleDataRate(userSelection);
+            if (doubleDataRate == DoubleDataRate::DoubleDataRate::INVALID)
+            {
+                throw std::logic_error("Must select a valid DDR.");
+            }
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << e.what() << std::endl << std::endl;
+            std::cout << "Select a valid DDR from the following list." << std::endl;
+        }
+    } while (doubleDataRate == DoubleDataRate::DoubleDataRate::INVALID);
+
+    int ramSlots;
+    std::cout << "How many RAM slots does the motherboard have?" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> ramSlots;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid speed. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    std::string wifiEnabledInput;
+    std::cout << "Is this wifi enabled? (Y/N)" << std::endl;
+    std::cin >> wifiEnabledInput;
+
+    bool wifiEnabled = false;
+    if (wifiEnabledInput.starts_with("Y") || wifiEnabledInput.starts_with("y"))
+    {
+        wifiEnabled = true;
+    }
+
+    std::string integratedGraphicsInput;
+    std::cout << "Does this have an integrated graphics card? (Y/N)" << std::endl;
+    std::cin >> integratedGraphicsInput;
+
+    bool integratedGraphics = false;
+    if (integratedGraphicsInput.starts_with("Y") || integratedGraphicsInput.starts_with("y"))
+    {
+        integratedGraphics = true;
+    }
+
+    return *(new Motherboard(name, description, brand, model, price, speed, doubleDataRate, ramSlots, wifiEnabled, integratedGraphics));
+}
+
+Product& PurchasePowerSupply()
+{
+    std::string name;
+    std::cout << "Enter a product name" << std::endl;
+    std::getline(std::cin, name);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string description;
+    std::cout << "Enter a product description" << std::endl;
+    std::getline(std::cin, description);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string brand;
+    std::cout << "Enter a product brand" << std::endl;
+    std::getline(std::cin, brand);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string model;
+    std::cout << "Enter a product model" << std::endl;
+    std::getline(std::cin, model);
+
+    float price;
+    std::cout << "Enter a product price" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> price;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid price. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    int wattage;
+    std::cout << "What is the power supply max wattage capacity?" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> wattage;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid capacity. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    PowerSupplyCertification::PowerSupplyCertification powerSupplyCertification = PowerSupplyCertification::PowerSupplyCertification::NOCERTIFICATION;
+    std::cout << "What level of certification would you like?" << std::endl;
+    do
+    {
+        for (int i = 1; ; i++)
+        {
+            try
+            {
+                std::string enumValue = getEnumType(PowerSupplyCertification::toStringMapping, PowerSupplyCertification::PowerSupplyCertification(i));
+                std::cout << i << ". " << enumValue << std::endl;
+            }
+            catch (...)
+            {
+                // Reached the end of the enum class and will break out of the for loop.
+                break;
+            }
+        }
+
+        try
+        {
+            int userSelection;
+            std::cin >> userSelection;
+            powerSupplyCertification = PowerSupplyCertification::PowerSupplyCertification(userSelection);
+            if (powerSupplyCertification == PowerSupplyCertification::PowerSupplyCertification::NOCERTIFICATION)
+            {
+                throw std::logic_error("Must select a valid power supply certification.");
+            }
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << e.what() << std::endl << std::endl;
+            std::cout << "Select a valid power supply certification from the following list." << std::endl;
+        }
+    } while (powerSupplyCertification == PowerSupplyCertification::PowerSupplyCertification::NOCERTIFICATION);
+
+    std::string fullyModularInput;
+    std::cout << "Is this fully modular? (Y/N)" << std::endl;
+    std::cin >> fullyModularInput;
+
+    bool fullyModular = false;
+    if (fullyModularInput.starts_with("Y") || fullyModularInput.starts_with("y"))
+    {
+        fullyModular = true;
+    }
+
+    std::string integratedGraphicsInput;
+    std::cout << "Does this have an integrated graphics card? (Y/N)" << std::endl;
+    std::cin >> integratedGraphicsInput;
+
+    return *(new PowerSupply(name, description, brand, model, price, wattage, powerSupplyCertification, fullyModular));
+}
+
+Product& PurchaseRAM()
+{
+    std::string name;
+    std::cout << "Enter the RAM name" << std::endl;
+    std::getline(std::cin, name);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string description;
+    std::cout << "Enter the RAM description" << std::endl;
+    std::getline(std::cin, description);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string brand;
+    std::cout << "Enter the RAM brand" << std::endl;
+    std::getline(std::cin, brand);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string model;
+    std::cout << "Enter the RAM model" << std::endl;
+    std::getline(std::cin, model);
+
+    float price;
+    std::cout << "Enter the RAM price" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> price;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid price. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    float speed;
+    std::cout << "Enter the RAM speed" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> speed;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid speed. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    DoubleDataRate::DoubleDataRate doubleDataRate = DoubleDataRate::DoubleDataRate::INVALID;
+    std::cout << "What kind of DDR would you like?" << std::endl;
+    do
+    {
+        for (int i = 1; ; i++)
+        {
+            try
+            {
+                std::string enumValue = getEnumType(DoubleDataRate::toStringMapping, DoubleDataRate::DoubleDataRate(i));
+                std::cout << i << ". " << enumValue << std::endl;
+            }
+            catch (...)
+            {
+                // Reached the end of the enum class and will break out of the for loop.
+                break;
+            }
+        }
+
+        try
+        {
+            int userSelection;
+            std::cin >> userSelection;
+            doubleDataRate = DoubleDataRate::DoubleDataRate(userSelection);
+            if (doubleDataRate == DoubleDataRate::DoubleDataRate::INVALID)
+            {
+                throw std::logic_error("Must select a valid DDR.");
+            }
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << e.what() << std::endl << std::endl;
+            std::cout << "Select a valid DDR from the following list." << std::endl;
+        }
+    } while (doubleDataRate == DoubleDataRate::DoubleDataRate::INVALID);
+
+    int ramMemorySize;
+    std::cout << "How much memory does the RAM have?" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> ramMemorySize;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid size. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    return *(new RAM(name, description, brand, model, price, speed, doubleDataRate, ramMemorySize));
+}
+
+Product& PurchaseStorage()
+{
+    std::string name;
+    std::cout << "Enter a product name" << std::endl;
+    std::getline(std::cin, name);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string description;
+    std::cout << "Enter a product description" << std::endl;
+    std::getline(std::cin, description);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string brand;
+    std::cout << "Enter a product brand" << std::endl;
+    std::getline(std::cin, brand);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string model;
+    std::cout << "Enter a product model" << std::endl;
+    std::getline(std::cin, model);
+
+    float price;
+    std::cout << "Enter a product price" << std::endl;
+    do
+    {
+        try
+        {
+            std::cin >> price;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid price. Error: " << e.what() << std::endl;
+        }
+    } while (std::cin.fail());
+
+    StorageDevice::StorageDevice storageDevice = StorageDevice::StorageDevice::NOSTORAGEDEVICE;
+    std::cout << "What kind of storage device would you like?" << std::endl;
+    do
+    {
+        for (int i = 1; ; i++)
+        {
+            try
+            {
+                std::string enumValue = getEnumType(StorageDevice::toStringMapping, StorageDevice::StorageDevice(i));
+                std::cout << i << ". " << enumValue << std::endl;
+            }
+            catch (...)
+            {
+                // Reached the end of the enum class and will break out of the for loop.
+                break;
+            }
+        }
+
+        try
+        {
+            int userSelection;
+            std::cin >> userSelection;
+            storageDevice = StorageDevice::StorageDevice(userSelection);
+            if (storageDevice == StorageDevice::StorageDevice::NOSTORAGEDEVICE)
+            {
+                throw std::logic_error("Must select a storage device.");
+            }
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << e.what() << std::endl << std::endl;
+            std::cout << "Select a valid storage device from the following list." << std::endl;
+        }
+    } while (storageDevice == StorageDevice::StorageDevice::NOSTORAGEDEVICE);
+
+    std::string internalComponentInput;
+    std::cout << "Is this an internal hard drive? (Y/N)" << std::endl;
+    std::cin >> internalComponentInput;
+
+    bool internalComponent = false;
+    if (internalComponentInput.starts_with("Y") || internalComponentInput.starts_with("y"))
+    {
+        internalComponent = true;
+    }
+
+    return *(new Storage(name, description, brand, model, price, storageDevice, internalComponent));
 }

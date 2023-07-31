@@ -7,6 +7,7 @@ namespace ScreenType
 {
     enum class ScreenType
     {
+        NOSCREEN,
         Flat,
         Curved
     };

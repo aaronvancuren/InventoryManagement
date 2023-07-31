@@ -14,6 +14,7 @@ private:
 
     std::string GenerateSKU()
     {
+        std::string sku;
         for (int i = 1; i <= 16; i++)
         {
             char randomAlphaNumeric = GetRandomAlphaNumeric();
@@ -23,6 +24,8 @@ private:
                 sku.push_back('-');
             }
         }
+
+        return sku;
     }
 public:
     Product(const std::string& name, const std::string& description, const std::string& brand, const std::string& model, const std::string& sku, const float& price)

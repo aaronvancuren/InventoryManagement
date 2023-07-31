@@ -7,6 +7,7 @@ namespace DoubleDataRate
 {
     enum class DoubleDataRate
     {
+        INVALID,
         DDR,
         DDR2,
         DDR3,
