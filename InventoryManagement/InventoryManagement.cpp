@@ -29,6 +29,7 @@ const fs::path inventoryPath = fs::current_path().parent_path()/"Inventories";
 
 // Method Declarations
 fs::path getSelectedInventoryFilePath();
+void ShowProducts(Inventory selectedInventory);
 
 int main()
 {
@@ -45,15 +46,53 @@ int main()
         std::cin >> menuInput;
         try
         {
+            std::string purchasingMenuInput;
+            std::string sellingMenuInput;
             switch (stoi(menuInput))
             {
             case 1:
                 exit(0);
             case 2:
+                ShowProducts(selectedInventory);
                 break;
             case 3:
+                std::cout << "What kind of product are you purchasing?" << std::endl;
+                std::cout << "1. Exit" << std::endl;
+                std::cout << "2. CPU" << std::endl;
+                std::cout << "3. GPU" << std::endl;
+                std::cout << "4. Monitor" << std::endl;
+                std::cout << "5. Motherboard" << std::endl;
+                std::cout << "6. Power Supply" << std::endl;
+                std::cout << "7. RAM" << std::endl;
+                std::cout << "8. Storage" << std::endl;
+
+                switch (stoi(purchasingMenuInput))
+                {
+                case 1:
+                    continue;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                default:
+                    std::cout << "Invalid selection, returning to main menu." << std::endl;
+                    continue;
+                }
                 break;
             case 4:
+                std::cout << "Which product are you selling? Please enter the SKU." << std::endl;
+                std::cin >> sellingMenuInput;
+                selectedInventory.removeProduct(sellingMenuInput);
                 break;
             default:
                 throw std::invalid_argument("Invalid Selection");
@@ -117,5 +156,18 @@ fs::path getSelectedInventoryFilePath()
         // Reprompts the user
         std::cout << "Invalid inventory selection" << std::endl;
         return getSelectedInventoryFilePath();
+    }
+}
+
+/// <summary>
+/// Prints out the products from a given inventory
+/// </summary>
+/// <param name="selectedInventory"></param>
+void ShowProducts(Inventory selectedInventory)
+{
+    std::list<Product*> products = selectedInventory.getProducts();
+    for (Product* product : products)
+    {
+        std::cout << product->toString() << std::endl << std::endl;
     }
 }
