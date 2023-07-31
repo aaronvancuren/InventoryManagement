@@ -25,7 +25,7 @@ public:
             try
             {
                 DisplayOutput::DisplayOutput displayOutput = getEnumType(DisplayOutput::toEnumMapping, item);
-                this->displayOutputs.push_back(&displayOutput);
+                this->displayOutputs.push_back(new DisplayOutput::DisplayOutput(displayOutput));
             }
             catch (const std::logic_error& e)
             {
@@ -50,7 +50,7 @@ public:
             try
             {
                 DisplayOutput::DisplayOutput displayOutput = getEnumType(DisplayOutput::toEnumMapping, item);
-                this->displayOutputs.push_back(&displayOutput);
+                this->displayOutputs.push_back(new DisplayOutput::DisplayOutput(displayOutput));
             }
             catch (const std::logic_error& e)
             {
@@ -75,7 +75,7 @@ public:
             try
             {
                 DisplayOutput::DisplayOutput displayOutput = getEnumType(DisplayOutput::toEnumMapping, item);
-                this->displayOutputs.push_back(&displayOutput);
+                this->displayOutputs.push_back(new DisplayOutput::DisplayOutput(displayOutput));
             }
             catch (const std::logic_error& e)
             {

@@ -45,7 +45,7 @@ public:
         this->price = price;
     }
 
-    std::string getName()
+    std::string getName() const
     {
         return name;
     }
@@ -55,7 +55,7 @@ public:
         this->name = name;
     }
 
-    std::string getDescription()
+    std::string getDescription() const
     {
         return description;
     }
@@ -65,7 +65,7 @@ public:
         this->description = description;
     }
 
-    std::string getBrand()
+    std::string getBrand() const
     {
         return brand;
     }
@@ -75,7 +75,7 @@ public:
         this->brand = brand;
     }
 
-    std::string getModel()
+    std::string getModel() const
     {
         return model;
     }
@@ -85,12 +85,12 @@ public:
         this->model = model;
     }
 
-    std::string getSKU()
+    std::string getSKU() const
     {
         return sku;
     }
 
-    float getPrice()
+    float getPrice() const
     {
         return price;
     }
