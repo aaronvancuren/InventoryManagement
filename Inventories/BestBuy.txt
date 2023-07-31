@@ -1,2 +1,2 @@
-[class GPU][NVIDIA RTX4070][Powerful Graphics Card][NVIDIA][RTX4070][abcd-1234-efgh-5678][799.99][12]{[Display Port][High-Definition Multimedia]};
-[class GPU][NVIDIA RTX3070][Powerful Graphics Card][NVIDIA][RTX3070][1234-abcd-5678-efgh][399.99][12]{[Display Port][High-Definition Multimedia]};
+[class GPU][NVIDIA RTX4070][Powerful Graphics Card][NVIDIA][RTX4070][abcd-1234-efgh-5678][799.99][12]{[Display Port][High-Definition Multimedia]}
+[class GPU][NVIDIA RTX3070][Powerful Graphics Card][NVIDIA][RTX3070][1234-abcd-5678-efgh][399.99][12]{[Display Port][High-Definition Multimedia]}

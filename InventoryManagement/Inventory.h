@@ -97,8 +97,13 @@ public:
             while (inventoryFile)
             {
                 std::string productText;
-                std::getline(inventoryFile, productText, ';');
+                std::getline(inventoryFile, productText, '\n');
                 std::vector<std::string> productProperties = ParseInventoryFile(productText);
+                if (productText.empty())
+                {
+                    inventoryFile.close();
+                    continue;
+                }
 
                 Product* product = 0;
                 std::string productType = productProperties[0];
@@ -161,9 +166,9 @@ public:
         products.push_back(&product);
     }
 
-    void removeProduct(Product& product)
+    void removeProduct(std::string productSKU)
     {
-        products.remove(&product);
+        std::erase_if(products, [productSKU](Product* x) { return x->getSKU() == productSKU;});
     }
 
     double inventoryCarryingCost()
