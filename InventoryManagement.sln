@@ -5,6 +5,11 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InventoryManagement", "InventoryManagement\InventoryManagement.vcxproj", "{5F7E260D-FD60-4D04-9DD2-F52A42D9724B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1F346881-FBF9-4CA9-9687-76CBD745BDE2}"
+	ProjectSection(SolutionItems) = preProject
+		Inventories\BestBuy.txt = Inventories\BestBuy.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

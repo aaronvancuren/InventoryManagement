@@ -104,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EnumHelpers.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryManagement.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,12 +138,14 @@
     <ClInclude Include="DoubleDataRate.h" />
     <ClInclude Include="EnumHelpers.h" />
     <ClInclude Include="GPU.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Monitor.h" />
     <ClInclude Include="Motherboard.h" />
     <ClInclude Include="PowerSupply.h" />
     <ClInclude Include="PowerSupplyCertification.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="RAM.h" />
+    <ClInclude Include="RandomGenerator.h" />
     <ClInclude Include="ScreenType.h" />
     <ClInclude Include="Storage.h" />
     <ClInclude Include="StorageDevice.h" />

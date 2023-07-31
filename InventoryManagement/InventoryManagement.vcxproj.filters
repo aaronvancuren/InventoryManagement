@@ -33,8 +33,8 @@
     <ClCompile Include="InventoryManagement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EnumHelpers.cpp">
-      <Filter>Source Files\Helpers</Filter>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="PowerSupply.h">
       <Filter>Header Files\Products</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomGenerator.h">
+      <Filter>Header Files\Helpers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
