@@ -25,9 +25,6 @@
     <Filter Include="Header Files\Helpers">
       <UniqueIdentifier>{22d2f903-c342-4ba3-aa6e-23c709f87583}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Helpers">
-      <UniqueIdentifier>{53ad21bb-ee80-4dc6-b15d-86383f708eca}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InventoryManagement.cpp">
