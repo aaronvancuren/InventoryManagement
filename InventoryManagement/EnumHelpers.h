@@ -12,4 +12,12 @@
 /// <param name="value">The current value to map to a new type.</param>
 /// <returns></returns>
 template<class T, class T2>
-static inline T getEnumType(std::map<T2, T> mapping, T2 value);
+static inline T getEnumType(std::map<T2, T> mapping, T2 value)
+{
+    if (!mapping.contains(value))
+    {
+        throw std::logic_error("Failed to find appropriate mapping.");
+    }
+
+    return mapping.find(value)->second;
+};
